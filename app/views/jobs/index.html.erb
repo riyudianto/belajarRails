@@ -1,0 +1,24 @@
+	<% flash.each do |key, value| %>
+		<div class="alert alert-<%=key %>"> <%=value %></div>
+	<% end %>
+	<br>
+	<div class="row">
+		<div class="col-md-8" style="padding-left: 70px;">
+			<h1>Find Some Job's?</h1>
+		</div>
+		<div class="col-md-4" style="padding-left: 100px;">
+			<form id="get_search">
+			<div class="form-group">
+				<input class="form-control-sm" type="search" name="search" id="search" placeholder="Search Some Job?">
+				<input class="btn btn-sm btn-outline-info" type='button' onclick="submitFrmAjax();" value="Search">
+				<button type="button" class="btn btn-success"><%= link_to 'Add New Job' ,new_job_path, class:'link-to-text-color'%></button>
+			</div>
+		</form>
+		</div>
+	</div>
+	<hr/>
+	<div id="job_list">
+		<%= render @job %>
+	</div>
+	<%= paginate @job %>
+	<%=javascript_include_tag 'custom' %>

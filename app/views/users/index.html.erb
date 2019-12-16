@@ -1,0 +1,38 @@
+<br>
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<div class="col-md-8" style="padding-left: 70px;">
+   <h1>Account Management</h1>
+</div>
+<br />
+<br />
+
+<table class = "table table-bordered table-striped">
+   <thead align="center">
+      <tr>
+         <th>No</th>
+         <th>Name</th>
+         <th>Username</th>
+         <th>Email</th>
+         <th>Action</th>
+      </tr>
+   </thead>
+   <tbody>
+      <% @user.each_with_index do |j, index| %>
+         <tr>
+            <td width="50" align="center"><%= index+1 %></td>
+            <td><%= j.name %></td>
+            <td><%= j.username %></td>
+            <td><%= j.email %></td>
+            <td align="center">
+               <%= button_to "Delete",  jobs_user_path(j.id), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete this account ?" %>
+            </td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>

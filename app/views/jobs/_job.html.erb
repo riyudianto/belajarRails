@@ -1,0 +1,20 @@
+<div class="post-preview">
+	<div class="row" style="padding-left: 50px;">
+		<div class="col-md-10">
+			<a href="<%= job_path(job)%>">
+				<h1 class="post-title"><%= job.title_job %></h1>
+				<a ><%= job.desc_job.truncate(200)%></a>
+			</a>
+		</div>
+		<div class="col-md-2" style="padding-left: 100px;">
+			<br>
+			<button type="button" class="btn btn-warning">
+				<%= link_to 'Edit' ,edit_job_path(job.id), class:'link-to-text-color'%>
+			</button>
+			<button type="button" class="btn btn-danger">
+				<%= link_to 'Delete' ,job_path(job.id),  class:'link-to-text-color'%>			
+			</button>
+		</div>
+	</div>
+</div>
+<hr/>

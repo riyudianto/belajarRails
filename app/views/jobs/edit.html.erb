@@ -1,0 +1,21 @@
+<h1>Edit Job</h1>
+<%= form_for @job do |f| %>
+	<%= f.label :Job %>
+	<%= f.text_field :title_job %>
+	<br/>
+	<%= f.label :Description %>
+	<%= f.text_area :desc_job, cols:20, rows:10 %>
+	<br/>
+	<%= f.label :status %>
+	<%= f.radio_button :status, "oprec" %>
+	<%= label :article_status, "oprec" %>
+	<%= f.radio_button :status, "closed" %>
+	<%= label :article_status, "closed" %>
+	<br />
+	<%= f.submit :submit %>
+<% end %>
+
+<div>
+	<%=link_to "back_to_index", jobs_path %>
+</div>
+

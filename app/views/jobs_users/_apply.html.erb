@@ -1,0 +1,7 @@
+   <%= form_for([@jobs,@jobs.jobs_users.build], html: { multipart: true }) do |f| %>
+      <p><%= f.label :'cover letter' %>
+      <p><%= f.text_area :cover_letter, cols:70, rows:10 %>
+      <p><%= f.label :attachment %>
+      <p><%= f.file_field :attachment %>
+      <p><%= f.submit "Save", class: "btn btn-primary" %>
+   <% end %>

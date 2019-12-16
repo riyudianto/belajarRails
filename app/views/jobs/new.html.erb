@@ -1,0 +1,18 @@
+<div class="container">
+	<%= form_for @job do |f| %>	
+	<%= f.label :"Job Title" %>
+	<%= f.text_field :title_job %>
+	<%= @job.errors[:title_job].first unless @job.errors[:title_job].blank? %>
+	<br/>
+	<%= f.label :"Job description" %>
+	<%= f.text_area :desc_job, cols:20, rows:10 %>
+	<br/>
+	<%= f.label :status %>
+	<%= f.radio_button :status, "oprec" %>
+	<%= label :article_status, "oprec" %>
+	<%= f.radio_button :status, "close" %>
+	<%= label :article_status, "close" %>
+	<br />
+	<%= f.submit :submit %>
+	<% end %>
+</div>

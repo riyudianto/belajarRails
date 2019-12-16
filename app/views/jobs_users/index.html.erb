@@ -1,0 +1,50 @@
+<br>
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+<div class="col-md-8" style="padding-left: 70px;">
+   <h1>Apply Management</h1>
+</div>
+<br />
+<br />
+
+<table class = "table table-bordered table-striped">
+   <thead align="center">
+      <tr>
+         <th>No</th>
+         <th>Name</th>
+         <th>Jobs</th>
+         <th>Cover Letter</th>
+         <th>Resume</th>
+         <th>Status</th>
+         <th>Action</th>
+      </tr>
+   </thead>
+   <tbody>
+      <% @jobs_user.each_with_index do |j, index| %>
+         <tr>
+            <td width="1" align="center"><%= index+1 %></td>
+            <td><%= j.user_id %></td>
+            <td><%= j.job_id %></td>
+            <td><%= j.cover_letter %></td>
+            <td width="200" align="center"><%= link_to "Download Resume", j.attachment_url %></td>
+            <td width="150" align="center"><%= j.status %></td>
+            <td align="center">
+               <% if j.status == "unread" %>
+               <%= link_to "Accept",  accepted_path(j.id), class: "btn btn-success" %>
+               <%= link_to "Reject",  rejected_path(j.id), class: "btn btn-danger" %>
+               <%= button_to "Delete",  jobs_user_path(j.id), method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete ?" %>
+               <% elsif j.status == "accepted"  %>
+               <%= link_to "Reject",  rejected_path(j.id), class: "btn btn-danger" %>
+               <% else %>
+               <%= link_to "Accept",  accepted_path(j.id), class: "btn btn-success" %>
+               <%end%>
+            </td>
+         </tr>
+         
+      <% end %>
+   </tbody>
+   
+</table>

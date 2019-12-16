@@ -1,0 +1,10 @@
+<%= form_tag sessions_path do %>
+<%= label_tag :username %>
+<%= text_field_tag :username, (params[:username] unless params[:username].blank?) %>
+<br/>
+<%= label_tag :password %>
+<%= password_field_tag :password %>
+<br/>
+<%= submit_tag :submit %>
+<%= link_to "Register",  sign_up_path, class: "btn btn-info" %>
+<% end %>    

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testapp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+      <!-- Bootstrap core CSS -->
+    <%= stylesheet_link_tag "vendor/bootstrap/css/bootstrap.min.css" %>
+
+    <!-- Custom styles for this template -->
+    <%= stylesheet_link_tag "simple-sidebar.css" %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+      <div class="d-flex" id="wrapper">
+        <%= render 'layouts/sidebar' %>
+        <div id="page-content-wrapper">
+          <%= render 'layouts/navigation' %>
+          <div class="container-fluid">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="<%= asset_path 'vendor/jquery/jquery.min.js' %>"></script>
+    <script src="<%= asset_path 'vendor/bootstrap/js/bootstrap.bundle.min.js' %>"></script>
+    <%= javascript_include_tag 'sidebar' %>
+</body>
+</html>

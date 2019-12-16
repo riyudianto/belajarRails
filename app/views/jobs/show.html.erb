@@ -1,0 +1,14 @@
+<div class="container">
+	<br>
+		<% flash.each do |key, value| %>
+		<div class="alert alert-<%=key %>"> <%=value %></div>
+		<% end %>
+		<h3><%= @jobs.title_job %></h3>
+		<br><%= @jobs.desc_job %>
+		<br>
+		<br>
+		<div>
+			<%= render 'jobs_users/apply' %>
+		</div>
+		<%= link_to '<< back to job list', jobs_path %>
+</div>
