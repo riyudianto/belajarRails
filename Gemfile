@@ -68,5 +68,5 @@ gem 'humanizer'
 gem 'kaminari'
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'carrierwave', '~> 0.9'
+gem 'carrierwave', '~> 1.3'
 gem 'bootstrap-sass', '~> 2.3.2'
